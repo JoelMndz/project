@@ -23,7 +23,7 @@ services:
             - restapi
         environment:
           - PORT=9000
-          - API=http://restapi:5000/api
+          - VUE_APP_API=http://localhost:7000/api
         ports:
           - 9000:9000
     microservicio1:
