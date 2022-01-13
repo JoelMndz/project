@@ -22,8 +22,10 @@ services:
         depends_on: 
             - restapi
         environment:
-          - PORT=8080
+          - PORT=9000
           - API=http://restapi:5000/api
+        ports:
+          - 9000:9000
     microservicio1:
         build: ./microservicio1
         depends_on: 
