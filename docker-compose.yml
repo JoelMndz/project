@@ -12,12 +12,18 @@ services:
     estudiantessr:
         build: ./EstudianteSSR
         depends_on: 
-            - mongo
+            - restapi
         environment:
           - PORT=8000
-          - MONGO_URI=mongodb://mongo:27017/dbFacultadAct
           - API=http://restapi:5000/api
           - SECRET=facci2022
+    facultadcsr:
+        build: ./facultadcsr
+        depends_on: 
+            - restapi
+        environment:
+          - PORT=8080
+          - API=http://restapi:5000/api
     microservicio1:
         build: ./microservicio1
         depends_on: 
@@ -33,5 +39,6 @@ services:
         depends_on: 
             - restapi
             - estudiantessr
+            - facultadcsr
     mongo:
         image: mongo
